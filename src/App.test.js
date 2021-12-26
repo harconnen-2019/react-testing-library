@@ -46,7 +46,7 @@ describe('App', () => {
         // Разные варианты проверок (справа)
         expect(screen.getByAltText(/search image/)).toHaveClass('image')
         expect(screen.getByLabelText(/search/i)).not.toBeRequired()
-        expect(screen.getByLabelText(/search/i)).toBeEmpty()
+        expect(screen.getByLabelText(/search/i)).toBeEmptyDOMElement()
         expect(screen.getByLabelText(/search/i)).toHaveAttribute('id')
     })
 })
