@@ -1,4 +1,5 @@
 import {fireEvent, render, screen} from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import App from './App'
 
 /*
@@ -42,6 +43,7 @@ describe('App', () => {
         expect(screen.getByAltText('search image')).toBeInTheDocument()
         expect(screen.getByDisplayValue('')).toBeInTheDocument()
 
+        // Разные варианты проверок (справа)
         expect(screen.getByAltText(/search image/)).toHaveClass('image')
         expect(screen.getByLabelText(/search/i)).not.toBeRequired()
         expect(screen.getByLabelText(/search/i)).toBeEmpty()
@@ -54,24 +56,39 @@ describe('events', () => {
         render(<App/>)
         // Ждем загрузки текста иначе будет ошибка в консоли
         await screen.findByText(/Logged in as/i)
-
+        // проверяем что текста нет
         expect(screen.queryByText(/Searches for React/)).toBeNull()
         // вписываем текст
         fireEvent.change(screen.getByRole('textbox'), {
             target: {value: 'React'},
         })
+        // можем использовать вместо fireEvent
+        userEvent.type(screen.getByRole('textbox'), 'React')
+        // текст появился
         // eslint-disable-next-line testing-library/prefer-presence-queries
         expect(screen.queryByText(/Searches for React/)).toBeInTheDocument()
     })
     test('checkbox click', () => {
         const handleChange = jest.fn()
+        // рендерим не компонент а данные
         const {container} = render(
             <input type="checkbox" onChange={handleChange}/>
         )
+
+        // пробуем разные варианты поиска вместо getByRole
         // eslint-disable-next-line testing-library/no-node-access
         const checkbox = container.firstChild
+        // проверяем что поле не выбрано
         expect(checkbox).not.toBeChecked()
-        fireEvent.click(checkbox)
+        // кликаем на поле
+        // fireEvent.click(checkbox)
+
+        // можно вместо fireEvent
+        userEvent.click(checkbox)
+        // можем добавить доп опции: были ли нажаты кнопки Ctrl Shift
+        // userEvent.click(checkbox, { ctrlKey: true, shiftKey: true });
+
+        // проверяем была ли вызвана функция (пример: либо это либо следующее)
         expect(handleChange).toHaveBeenCalledTimes(1)
         expect(checkbox).toBeChecked()
     })
@@ -84,5 +101,59 @@ describe('events', () => {
         expect(input).not.toHaveFocus()
         input.focus()
         expect(input).toHaveFocus()
+    })
+})
+
+
+// UserEvent
+
+describe('events 2', () => {
+
+    it('double click', () => {
+        const onChange = jest.fn()
+        const {container} = render(<input type="checkbox" onChange={onChange}/>)
+        const checkbox = container.firstChild
+        expect(checkbox).not.toBeChecked()
+        userEvent.dblClick(checkbox)
+        expect(onChange).toHaveBeenCalledTimes(2)
+    })
+
+    it('focus', () => {
+        /**
+         * Эмулируем поведение пользователя
+         * перемещение по полям кнопкой TAB
+         */
+        const {getAllByTestId} = render(
+            <div>
+                <input data-testid="element" type="checkbox"/>
+                <input data-testid="element" type="radio"/>
+                <input data-testid="element" type="number"/>
+            </div>
+        )
+        const [checkbox, radio, number] = getAllByTestId('element')
+        userEvent.tab()
+        expect(checkbox).toHaveFocus()
+        userEvent.tab()
+        expect(radio).toHaveFocus()
+        userEvent.tab()
+        expect(number).toHaveFocus()
+    })
+
+    it('select option', () => {
+        const {selectOptions, getByRole, getByText} = render(
+            <select>
+                <option value="1">A</option>
+                <option value="2">B</option>
+                <option value="3">C</option>
+            </select>
+        )
+
+        userEvent.selectOptions(getByRole('combobox'), '1')
+        expect(getByText('A').selected).toBeTruthy()
+
+        userEvent.selectOptions(getByRole('combobox'), '2')
+        expect(getByText('B').selected).toBeTruthy()
+        // С этого поля выбор снят - проверка
+        expect(getByText('A').selected).toBeFalsy()
     })
 })

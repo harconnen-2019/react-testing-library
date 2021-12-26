@@ -1,70 +1,75 @@
-# Getting Started with Create React App
+# React Testing Library
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Описание курса:
+В данном видеокурсе мы с вами рассмотрим тестирование React-приложения и React-компонентов с помощью библиотеки react-testing-library. В дополнение протестируем связку React и React Router, а так же React и Redux. Плюс, разберём тестирование практически всех нативных React-хуков.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+### Используемые ресурсы и инструменты:
+- [Visual Studio Code (редактор кода)](https://code.visualstudio.com)
+- [Node.js](https://nodejs.org/en/)
+- [Yarn](https://yarnpkg.com)
+- [Jest (расширение для VS Code)](https://marketplace.visualstudio.com/items?itemName=Orta.vscode-jest)
 
-### `npm start`
+### Полезные курсы и видео:
+- [Jest & Enzyme](https://www.youtube.com/playlist?list=PLNkWIWHIRwMFPcbK0AJVBYyNveXmMZhMS)
+- [React & Redux](https://www.youtube.com/playlist?list=PLNkWIWHIRwME_Gv2vlWAR6TfeSXylYfw4)
+- [React Hooks A Complete Introduction](https://youtu.be/X6j7Y7tp3_c)
+- [React 16.8 Hooks RELEASE!](https://youtu.be/19EmLE2mZ1Q)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Полезные ссылки:
+- [Курс по Enzyme](https://www.youtube.com/playlist?list=PLNkWIWHIRwMFPcbK0AJVBYyNveXmMZhMS)
+- [React Testing Library (docs)](https://testing-library.com)
+- [React Testing Library (repo)](https://github.com/testing-library/react-testing-library)
+- [How To Test Your React Apps With The React Testing Library](https://www.smashingmagazine.com/2020/07/react-apps-testing-library/)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Issues:
+- [Nothing was returned from render](https://github.com/testing-library/react-testing-library/issues/663)
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Быстрый старт:
+- Клонируйте репозиторий: `git clone https://github.com/YauhenKavalchuk/react-testing-library.git`
+- Перейдите в папку с проектом `cd react-testing-library`
+- Перейдите в нужную ветку соответствующую уроку:
+    - `git checkout lesson_01`
+    - `git checkout lesson_02`
+    - `git checkout lesson_10` и т.д.
+- Установите зависимости: `yarn install`
+- Запустите тесты: `yarn test`
 
-### `npm run build`
+### Установка зависимостей:
+`yarn add axios react-router react-router-dom history redux react-redux`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Список уроков:
+- [#0 Введение (Introduction)](https://youtu.be/v4pycbXkP1Y)
+- [#1 Установка окружения (Setup Environment)](https://youtu.be/aUgcf6p1Ep4)
+- [#2 Рендеринг компонента (Rendering a Component)](https://youtu.be/yNi7hmfX0Iw)
+- [#3 Поисковые типы (Search Types)](https://youtu.be/6ZtHq7SAp1Q)
+- [#4 Поисковые варианты и утверждения (Search Variants & Assertive Functions)](https://youtu.be/R_x5citvlL4)
+- [#5 fireEvent Событие (Fire Events)](https://youtu.be/7fD24m3rsKw)
+- [#6 userEvent Событие (User Events)](https://youtu.be/3YrxcAXkUKQ)
+- [#7 Асинхронное тестирование (Asynchronous Testing)](https://youtu.be/9ztPFFqsPPA)
+- [#8 Тестирование контекста и портала (Context & Portal Testing)](https://youtu.be/APkWo-na450)
+- [#9 Тестирование Реакт Роутера (React Router Testing)](https://youtu.be/TMRgI4_djCY)
+- [#10 Тестирование Редакса и useReducer (Redux & useReducer Testing)](https://youtu.be/L-Wf-u7ZSBU)
+- [#11 Лучшие практики (Best Practices)](https://youtu.be/RyR6jM7pp4g)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+### Связаться со мной:
+[<img alt="webDev | YouTube" src="https://img.shields.io/badge/youtube-FF0000.svg?&style=for-the-badge&logo=Instagram&logoColor=white" />][youtube]
+[<img alt="webDev | Instagram" src="https://img.shields.io/badge/instagram-E4405F.svg?&style=for-the-badge&logo=Instagram&logoColor=white" />][instagram]
+[<img alt="webDev | LinkedIn" src="https://img.shields.io/badge/linkedin-0077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" />][linkedin]
+[<img alt="webDev | Twitter" src="https://img.shields.io/badge/twitter-1DA1F2.svg?&style=for-the-badge&logo=Twitter&logoColor=white" />][twitter]
+[<img alt="webDev | VK" src="https://img.shields.io/badge/vk-4680C2.svg?&style=for-the-badge&logo=Twitter&logoColor=white" />][vk]
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[youtube]: https://youtube.com/YauhenKavalchuk
+[instagram]: https://instagram.com/YauhenKavalchuk
+[linkedin]: https://linkedin.com/in/YauhenKavalchuk
+[vk]: https://vk.com/YauhenKavalchuk
+[twitter]: https://twitter.com/YauhenKavalchuk
+[sponsor]: https://www.youtube.com/channel/UCE9ODjNIkOHrnSdkYWLfYhg/join
+[patron]: https://www.patreon.com/YauhenKavalchuk
